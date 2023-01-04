@@ -1,0 +1,61 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+section{
+    position: relative;
+}
+.section--1 img{
+width:100%;
+margin-bottom:60px;
+
+}
+.shp-btn{
+    background-color: rgb(247, 245, 245);
+    border:0px;
+    border-radius:20px;
+    width:110px;
+    height: 40px;
+    position: absolute;
+    top: 400px;
+    right:1200px;
+    
+}
+.heading--1{
+    text-align: center;
+}
+.card-heading{
+    text-align: center;
+}
+
+.row--container
+{box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    width:300px;
+    
+}
+.detail{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+}
+/* --------img --------- */
+.h--1{
+   height:300px;
+}
+/* ---------price----------- */
+.price{
+    font-size: 20px;
+}
+.add-cart{
+text-decoration: none;
+color: black;
+}
+.box{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}

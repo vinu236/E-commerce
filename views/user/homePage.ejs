@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/banner.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+    crossorigin="anonymous"
+  />
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+/>
+    <style> 
+       @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
+body{
+  font-family: 'Muli', sans-serif;
+  background:#e6e6e6;
+}
+.shell{
+  padding:80px 0;
+}
+.wsk-cp-product{
+  background:#fff;
+  padding:15px;
+  border-radius:6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  position:relative;
+  margin:20px auto;
+}
+.wsk-cp-img{
+  position:absolute;
+  top:5px;
+  left:50%;
+  transform:translate(-50%);
+  -webkit-transform:translate(-50%);
+  -ms-transform:translate(-50%);
+  -moz-transform:translate(-50%);
+  -o-transform:translate(-50%);
+  -khtml-transform:translate(-50%);
+  width: 100%;
+  padding: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.wsk-cp-img img{
+  width:100%;
+  transition: all 0.2s ease-in-out;
+  border-radius:6px;
+}
+.wsk-cp-product:hover .wsk-cp-img{
+  top:-40px;
+}
+.wsk-cp-product:hover .wsk-cp-img img{
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.wsk-cp-text{
+  padding-top:150%;
+}
+.wsk-cp-text .category{
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  padding:5px;
+  margin-bottom:45px;
+  position:relative;
+  transition: all 0.2s ease-in-out;
+}
+.wsk-cp-text .category > *{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  -khtml-transform: translate(-50%,-50%);
+    
+}
+.wsk-cp-text .category > span{
+  padding: 12px 30px;
+  border: 1px solid #313131;
+  background:#212121;
+  color:#fff;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  border-radius:27px;
+  transition: all 0.05s ease-in-out;
+  
+}
+.wsk-cp-product:hover .wsk-cp-text .category > span{
+  border-color:#ddd;
+  box-shadow: none;
+  padding: 11px 28px;
+}
+.wsk-cp-product:hover .wsk-cp-text .category{
+  margin-top: 0px;
+}
+.wsk-cp-text .title-product{
+  text-align:center;
+}
+.wsk-cp-text .title-product h3{
+  font-size:20px;
+  font-weight:bold;
+  margin:15px auto;
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  width:100%;
+}
+.wsk-cp-text .description-prod p{
+  margin:0;
+}
+/* Truncate */
+.wsk-cp-text .description-prod {
+  text-align:center;
+  width: 100%;
+  height:62px;
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  margin-bottom:15px;
+}
+.card-footer{
+  padding: 25px 0 5px;
+  border-top: 1px solid #ddd;
+}
+.card-footer:after, .card-footer:before{
+  content:'';
+  display:table;
+}
+.card-footer:after{
+  clear:both;
+}
+
+.card-footer .wcf-left{
+  float:left;
+  
+}
+
+.card-footer .wcf-right{
+  float:right;
+}
+
+.price{
+  font-size:18px;
+  font-weight:bold;
+}
+
+a.buy-btn{
+  display:block;
+  color:#212121;
+  text-align:center;
+  font-size: 18px;
+  width:35px;
+  height:35px;
+  line-height:35px;
+  border-radius:50%;
+  border:1px solid #212121;
+  transition: all 0.2s ease-in-out;
+}
+a.buy-btn:hover , a.buy-btn:active, a.buy-btn:focus{
+  border-color: #FF9800;
+  background: #FF9800;
+  color: #fff;
+  text-decoration:none;
+}
+.wsk-btn{
+  display:inline-block;
+  color:#212121;
+  text-align:center;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+  border-color: #FF9800;
+  background: #FF9800;
+  padding:12px 30px;
+  border-radius:27px;
+  margin: 0 5px;
+}
+.wsk-btn:hover, .wsk-btn:focus, .wsk-btn:active{
+  text-decoration:none;
+  color:#fff;
+}  
+.red{
+  color:#F44336;
+  font-size:22px;
+  display:inline-block;
+  margin: 0 5px;
+}
+@media screen and (max-width: 991px) {
+  .wsk-cp-product{
+    margin:40px auto;
+  }
+  .wsk-cp-product .wsk-cp-img{
+  top:-40px;
+}
+.wsk-cp-product .wsk-cp-img img{
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+  .wsk-cp-product .wsk-cp-text .category > span{
+  border-color:#ddd;
+  box-shadow: none;
+  padding: 11px 28px;
+}
+.wsk-cp-product .wsk-cp-text .category{
+  margin-top: 0px;
+}
+a.buy-btn{
+  border-color: #FF9800;
+  background: #FF9800;
+  color: #fff;
+}
+}
+.wishlist:active{
+ scale: 1.5 ;
+ color: red;
+}
+        
+    </style>
+  </head>
+  
+  <body>
+        <!-- navbar -->
+  <%-include('../includes/user/navbar.ejs')%>
+  <!-- navbar-end -->
+  <% if(getBanner){%>
+    <% for(let i=0;i<getBanner.length;i++){%>
+  <section class="section-banner">
+    <div class="banner-container">
+    <div class="banner-text-box">
+        <h1 class="heading-primary"><%=getBanner[i].head%></h1>
+        <p class="shop-description"><%=getBanner[i].description%></p>
+        <a href="<%=getBanner[i].url%> " class="btns"><%=getBanner[i].btnName%> &rarr;</a>
+    </div>
+    
+     
+    <div  class="banner-img">
+        <img src="/uploads/<%=getBanner[i].bannerImage%>" alt="" class="banner-img">
+    </div>
+  <%}%>
+  <%}%>
+    </div>
+</section>
+
+    <div class="container text-center mt-5" >
+      <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;letter-spacing: 3;">Hoddies</h1>
+      </div >
+      
+      
+      <div class="shell">
+        <div class="container">
+          <div class="row">
+            <%for(let i=0;i<getProducts.length;i++){%>
+            <div class="col-md-3">
+              <div class="wsk-cp-product">
+                <div class="wsk-cp-img">
+                  <img src="/uploads/<%=getProducts[i].imageUrl%>" alt="Product" class="img-responsive" />
+                </div>
+                <div class="wsk-cp-text">
+                  <div class="category">
+                    <span><%=getProducts[i].category%></span>
+                  </div>
+                  <div class="title-product">
+                    <h3><%=getProducts[i].title%></h3>
+                  </div>
+                  <div class="description-prod">
+                    <p><%=getProducts[i].description%></p>
+                  </div>
+                  <div class="card-footer">
+                    
+                      
+                    
+                    
+                    <div class="wcf-left"><span class="price"><strong>&#x20B9;</strong> <%=getProducts[i].price%></span></div>
+                    <div class="wcf-right"> 
+                      <ion-icon name="heart" class="wishlist"" onclick="wishlist('<%=getProducts[i]._id%>')"></ion-icon>   
+                      <i class="fa-solid fa-cart-plus" onclick="ajaxCart('<%=getProducts[i]._id%>')" style="margin-left:30px; cursor: pointer;" ></i></div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%}%> 
+          </div>  
+            
+          
+        </div>
+      </div>
+    
+      <%-include('../includes/user/footer.ejs')%>
+      
+  </body>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="/js/ajaxCall.js"></script>
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+  crossorigin="anonymous"
+></script>
+ 
+</html>

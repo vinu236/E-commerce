@@ -1,0 +1,17 @@
+body{
+    margin: 0px;
+    padding:0px;
+}
+
+.form{
+
+display: flex;
+height:100vh;
+justify-content: center;
+align-items: center;
+max-width: 1500px;
+}
+.form-section{
+    display:flex;
+    flex-wrap: wrap;
+}

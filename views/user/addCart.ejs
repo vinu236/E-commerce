@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  />
+    <link rel="stylesheet" href="css/addCart.css" />
+    <title>Document</title>
+</head>
+<body>
+     <!-- navbar Starting----------------------------------------------------------- -->
+ <%-include('../includes/user/navbar.ejs')%>
+  
+ <!-- ---------------------------navbar Ending------------------------------------ -->
+    <%if(getProducts.length>=1){%>
+    <div class="container mt-5 p-4 rounded cart ">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="product-details mr-2">
+                    <div class="d-flex flex-row align-items-center"><a href="/home" class="backbtn"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue Shopping</span></a></div>
+                    <hr>
+                    <h4 class="mb-10">Shopping cart</h4>
+                    <div class="d-flex justify-content-between container"><span>You have <%=getProducts.length%> items in your cart</span>
+                        <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
+                            <div class="price ml-2"><span class="mr-1">
+                                <select name="" id="" style="border: 0px;">
+                                    <option value="">Price</option>
+                                    <option name="lower" value="" >low to high</option>
+                                   <option name="lower" value="">high to low</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <%for(let i=0;i<getProducts.length;i++){%>
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row"><img class="rounded" src="/uploads/<%=getProducts[i].productData.imageUrl%>" width="40">
+                            <div class="ml-2"><span class="font-weight-bold d-block"><%=getProducts[i].productData.title%></span><span class="spec"><%=getProducts[i].productData.category%>, <%=getProducts[i].productData.size%></span></div>
+                        </div>
+                        <button class="cart-item-count mr-3 " onclick="changeQty('<%=getProducts[i]._id%>','<%=getProducts[i].productData._id%>',-1)">-</button><span id="<%=getProducts[i].productData._id%>"><%=getProducts[i].quantity%></span><button class="cart-item-count ml-3 " onclick="changeQty('<%=getProducts[i]._id%>','<%=getProducts[i].productData._id%>',1)" >+</button>
+
+                        <div class="d-flex flex-row align-items-center"><span class="d-block ml-5 font-weight-bold prdPrice"><%=singleProductPrice[i].total%></span><a class="btn " id="removeCart" onclick="removeCart('<%=getProducts[i].productData._id%>')"><i class="fa fa-trash-o ml-3 text-black-50 btnn"></i></a></div>
+                    </div>
+                    <%}%>
+                </div>
+                    
+                </div>
+            </div>
+            <div class="priceContainer">
+                <h3 >Total Price:<%=totalPrice[0 ].totalAmount%></h3>
+              <a href="/check-out" style="margin-left: 30px;">
+                <button class="btn btn-warning text-dark">Place-Order</button>
+              </a>
+            
+        </div>
+            
+    </div>
+    <%}else{%>
+        <div class="cartEmpty">
+            <div><img src="/uploads/cart is empty.png" alt="" ></div>
+            <!-- <div class="continuShopping"><a href="">Continue Shopping &lAarr;</a></div> -->
+          
+        </div>
+        
+      <%}%>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="/js/ajaxCall.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src=""></script>
+</html>

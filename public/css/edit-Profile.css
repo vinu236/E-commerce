@@ -1,0 +1,20 @@
+*{
+    margin:0px;
+    padding:0px ;
+}
+.heading{
+    margin-bottom:30px;
+}
+.message{
+    display: block;
+    text-align: center;
+    background-color: aquamarine;
+}
+.updateMsg{
+    text-align: center;
+   
+    
+    background-color:white;
+    position: absolute;
+    left: 45%;
+}

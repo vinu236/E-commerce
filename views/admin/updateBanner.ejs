@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Section: Design Block -->
+    <section class="text-center text-lg-start">
+        <style>
+            .cascading-right {
+                margin-right: -50px;
+            }
+
+            @media (max-width: 991.98px) {
+                .cascading-right {
+                    margin-right: 0;
+                }
+            }
+        </style>
+
+        <!-- Jumbotron -->
+        <div class="container py-4 mt-5">
+            <div class="row g-0 align-items-center justify-content-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card cascading-right" style="
+                background: hsla(0, 0%, 100%, 0.55);
+                backdrop-filter: blur(30px);
+              ">
+                        <div class="card-body p-5 shadow-5 text-center">
+                            <h2 class="fw-bold mb-5">Banner</h2>
+                            <form action="/admin_panel/update-banner/<%=getBannerImg._id%>" method="post" enctype="multipart/form-data">
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3">Add-Banner</label><br />
+                                    <img src="/uploads/<%=getBannerImg.bannerImage%>" alt="" id="myFiles" width="70px">
+                                    <input type="file" id="form3Example3" name="myFiles" style="display: none;" />
+                                    <span id="emailError" style="color: red"></span>
+                                </div>  
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block mb-4">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Jumbotron -->
+    </section>
+    <!-- <script    <!-- Section: Design Block -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

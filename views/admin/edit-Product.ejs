@@ -1,0 +1,49 @@
+<%-include('../includes/admin/head.ejs')%>
+<%-include('../includes/admin/navigation.ejs')%>
+      <div class="col py-3" style="background-color: #cfe2b9;"><!-- type from here -->
+        <div class="container">
+            <h2>Edit-Products</h2>
+           
+            <table class="table">
+             
+              <thead>
+                <tr>
+                  <th>Product Title</th>
+                  <th>Category</th>
+                  <th>Stock</th>
+                  <th>image</th>
+                  <th>Price</th>
+                  <th>Description</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%for(let i=0;i<editProducts.length;i++){%>
+                <tr id="table">
+                  <td><%=editProducts[i].title%></td>
+                  <td><%=editProducts[i].category%></td>
+                  <td><%=editProducts[i].Stock%></td>
+                   <td><img src="/uploads/<%=editProducts[i].imageUrl%>" alt="img" style="height: 30px;width:30px ;"></td>
+                  
+                  <td><%=editProducts[i].price%></td>
+                  <td><%=editProducts[i].description%></td>
+                  <td><a href="/admin_panel/update_products/<%=editProducts[i]._id%>"><button type="button" class="btn btn-primary">Edit</button></a></td>
+                  <% if(editProducts[i].isDeleted===false){%>
+                  <td><a  onclick="softDelete('<%=editProducts[i]._id%>') "><button type="button" class="btn btn-danger">Delete</button></a></td>
+                <%}else{%>
+                  <td><a  onclick="retrieve('<%=editProducts[i]._id%>') "><button type="button" class="btn btn-danger">Retrieve</button></a></td>
+                <%}%>
+                </tr>
+              <%}%>
+              </tbody>
+            </table>
+          </div>
+      </div>
+  </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="/js/adminAjaxCall.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>

@@ -1,0 +1,41 @@
+ body{
+    background: linear-gradient(white,#eee);
+}
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+form{
+    border: 3px solid #777;
+    padding:100px;
+    border-radius: 10px;
+}
+.cat-label{
+    display: block;
+    padding: 10px;
+    font-size:15px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+input[type=text]{
+    border-radius: 20px;
+    border: 1px solid rgb(216, 215, 215);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input[type=text]:focus{
+   background-color: #eee;
+}
+.butn{
+    margin-top: 20px;
+    text-align: center;
+}
+.button{
+    border:0px;
+    border-radius:6px  ;
+    padding:6px;
+    background-color: tan;
+}

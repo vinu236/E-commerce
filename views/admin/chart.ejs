@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+
+    <!-- End Navbar -->
+
+    <%-include('../includes/admin/navigation.ejs')%>
+    
+    
+    <div class="col py-3 user-details">
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Users</p>
+                    <h5 class="font-weight-bolder mb-0">
+                      <%=usercount%>
+                      <!-- <span class="text-success text-sm font-weight-bolder">+55%</span> -->
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                   
+                    <!-- <i class="ni ni-money- text-lg opacity-10" aria-hidden="true"></i> -->
+                    <i class='bx bx-user' undefined ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Products</p>
+                    <h5 class="font-weight-bolder mb-0">
+                       <%=ordercount%> 
+                      <!-- <span class="text-success text-sm font-weight-bolder">+3%</span> -->
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                    <i class='bx bxs-bowl-hot' ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Order</p>
+                    <h5 class="font-weight-bolder mb-0">
+                        <%=productcount%>  
+                      <!-- <span class="text-success text-sm font-weight-bolder">+3%</span> -->
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                    <i class='bx bx-shopping-bag' ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Income</p>
+                    <h5 class="font-weight-bolder mb-0">
+                     
+                      <!-- <span class="text-success text-sm font-weight-bolder">+3%</span> -->
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                    <i class='bx bx-money'></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row gap-2 justify-content-center p-2">
+          <div class="col-md-7 mt-5 gbg" style="border-radius: 5px">
+            <canvas id="ordersStatusChart" class="h-100"> </canvas>
+          </div>
+          <div class="col-md-4 mt-5 gbg" style="border-radius: 5px">
+            <canvas id="Paystatus" class=""> </canvas>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" id="pending" value="<%= pending %>" />
+      <input type="hidden" id="completed" value="<%= completed %>" />
+      <input type="hidden" id="shipped" value="<%= shipped %>" />
+      <input type="hidden" id="delivered" value="<%= delivered%>" />
+      <input type="hidden" id="cod" value="<%=cod%>" />
+      <input type="hidden" id="online" value="<%online%>" />
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById("ordersStatusChart");
+      const ctx1 = document.getElementById("Paystatus");
+      const pending = Number(document.getElementById("pending").value);
+      const completed = Number(document.getElementById("completed").value);
+      const shipped = Number(document.getElementById("shipped").value);
+      const delivered = Number(document.getElementById("delivered").value);
+      const cod = Number(document.getElementById("cod").value);
+      const online = Number(document.getElementById("online").value);
+      
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Pending", "shipped", "delivered", "Completed"],
+          datasets: [
+            {
+              label: "No .of Orders",
+              data: [pending, shipped, delivered, completed],
+              borderWidth: 2,
+              backgroundColor: ["#BD000E" , "#BD000E", "#BD000E", "#BD000E"],
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      new Chart(ctx1, {
+        type: "pie",
+        data: {
+          labels: ["COD", "Online"],
+          datasets: [
+            {
+              label: "No .of Orders",
+              data: [cod, online],
+              borderWidth: 2,
+              backgroundColor: ["#DCAA00", "#04891E"],
+            },
+          ],
+        },
+        options: {},
+      });
+    </script>
+      
+      
+    </main>
+  </div>
+</div>
+        
+      
+      
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</html>

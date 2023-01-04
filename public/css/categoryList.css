@@ -1,0 +1,41 @@
+.dele{
+    cursor: pointer;
+    color: black;
+}
+.dele:hover{
+    color: red;
+    
+}
+#edit:hover{
+    color: blue;
+    scale: 1.1;
+}
+.add:link,.add:visited{
+    text-decoration: none;
+    
+    
+    display: inline-block;
+   
+    font-size: 25px;
+    transition: all 1s;
+    color:black ;
+    
+
+
+}
+.add{
+    transition: scale 300ms;
+}
+.add:hover{
+    scale: 1.5;
+}
+
+.orderid{
+    text-decoration: none;
+    color: black;
+    
+}
+.orderid:hover{
+    color: red;
+    
+}

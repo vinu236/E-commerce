@@ -1,0 +1,44 @@
+<%-include('../includes/admin/head.ejs')%>
+<link rel="stylesheet" href="/css/admin-user.css">
+<title>Document</title>
+  </head>
+  <%-include('../includes/admin/navigation.ejs')%>
+        <div class="col py-3 user-details" >
+          <h3 class="heading">Users-Details</h3>
+          <!-- type here -->
+          
+          
+          <table class="table">
+            <thead class="thead" >
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">UserName</th>
+                <th scope="col">Email</th>
+                <th scope="col">Edit</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                  <%for(let i=0;i<userDetails.length;i++){%>
+              <tr>
+                <td scope="row"><%=[i+1]%></td>
+                <td><%=userDetails[i].Username%></td>
+                <td><%=userDetails[i].email%></td>
+                <td>
+                          <%if(userDetails[i].Active==='true'){%>
+                    <button type="button" class="btn btn-dark "><a href="/admin_panel/user/block/<%=userDetails[i]._id%>" class="text-white block" style="text-decoration:none" value="">Block</a></button>
+                          <% }
+                          else if(userDetails[i].Active==='false'){%>
+                    <button type="button" class="btn btn-dark unblock"><a href="/admin_panel/user/Unblock/<%=userDetails[i]._id%>" class="text-white" style="text-decoration:none">UnBlock</a></button>
+                          <%}%>
+                </td>
+              </tr>
+            <% } %>
+            </tbody>
+          </table>
+         
+        
+    </div>
+  </body>
+</html>
+<%-include('../includes/admin/footer.ejs')%>

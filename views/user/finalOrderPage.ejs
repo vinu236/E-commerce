@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+    crossorigin="anonymous"
+  />
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/order.css">
+    <title>Document</title>
+</head>
+<body>
+      <!-- navbar -->
+ 
+   
+    <div class="container mt-5 mb-5 " >
+
+
+        <div class="heading">
+                <h2>Thanks for shopping at <strong>Swang</strong></h2>
+        </div>
+
+        <div class="row d-flex justify-content-center"  >
+
+            <div class="col-md-8">
+
+                <div class="card">
+
+
+                        <div class="text-left logo p-2 px-5">
+
+                            <img src="https://i.imgur.com/2zDU056.png" width="50">
+                            
+
+                        </div>
+
+                        <div class="invoice p-5">
+
+                            <h3><%=createOrder.name%>,Your order has Confirmed!</h3>
+
+                            
+                           
+
+                            <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
+
+                                <table class="table table-borderless">
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted">Order Date </span>
+                                                <span><%=orderDate%></span>
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted">Order No</span>
+                                                <span><%=createOrder._id%></span>
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted">Payment</span>
+                                                    <%if(createOrder.paymentMethod=='COD'){%>
+                                                    <span><%=createOrder.paymentMethod%></span>
+                                                    <%}else{%>
+                                                <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span>
+                                                    <%}%>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted">Shipping Address</span>
+                                                <span><%=createOrder.address%></span><br>
+                                                <span><%=createOrder.pinCode%></span><br>
+                                                <span><%=createOrder.mobileNumber%></span>
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
+
+
+
+                                
+                            </div>
+
+
+
+
+                                <div class="product border-bottom table-responsive">
+
+                                    <%for(let i=0;i<getProductDetails.length;i++){%>
+
+                                    <table class="table table-borderless">
+
+                                    <tbody>
+                                        <tr>
+                                            <td width="20%">
+                                            
+                                            <img src="/uploads/<%=getProductDetails[i].orderedProduct.imageUrl%>" width="90">
+
+                                        </td>
+                                    
+                                        <td width="60%">
+                                            <span class="font-weight-bold"><strong><%=getProductDetails[i].orderedProduct.title%></strong></span>
+                                            <div class="product-qty">
+                                                <span class="d-block">Quantity:<%=getProductDetails[i].quantity%></span>
+                                                <span>Size:<%=getProductDetails[i].orderedProduct.size%></span>
+                                                
+                                            </div>
+                                        </td>
+                                        <td width="20%">
+                                            <div class="text-right">
+                                                <span class="font-weight-bold"><strong>&#x20B9;<%=getProductDetails[i].orderedProduct.price%></strong></span>
+                                            </div>
+                                        </td>
+                                        </tr>
+                                    <%}%>
+
+                                        
+                                    </tbody> 
+                                        
+                                    </table>
+                                    
+
+
+                                </div>
+
+                               
+
+                                <div class="row d-flex justify-content-end">
+
+                                    <div class="col-md-5">
+
+                                        <table class="table table-borderless">
+
+                                            <tbody class="totals">
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span class="text-muted">Total</span>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span>&#x20B9;<%=totalAmount%></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                                                 <tr>
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span class="text-muted">Shipping Fee</span>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span>FREE</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                                                 <tr class="border-top border-bottom">
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span class="font-weight-bold">Subtotal</span>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span class="font-weight-bold"><span>&#x20B9;<%=totalAmount%></span></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                        
+                                    </div>
+                                    
+
+
+                                </div>
+                          
+
+
+                                <p ><strong>Thanks for shopping with us!</strong> </p>
+                                
+
+
+
+                            
+
+                        </div>
+
+
+                       
+
+
+
+            
+        </div>
+                
+            </div>
+            
+        </div>
+        
+        
+    </div>
+
+    
+   
+    </section>
+
+    <div class=" d-flex  justify-content-center">
+        <a href="/home" class="btn btn-success">Continue For Shopping</a>
+    </div>
+</body>
+</html>

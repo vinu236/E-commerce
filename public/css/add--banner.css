@@ -1,0 +1,66 @@
+body{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.form{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form{
+    padding: 40px;
+    background-color: #fff;
+    border-radius:10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+label{
+    display: block;
+   
+}
+.form-container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+input,textarea{
+    border-radius: 30px;
+    border:3px solid #eee;
+}
+
+
+input[type=text],input[type=url]{
+    width: 100%;
+    padding: 5px 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  .file{
+    margin-top:30px;
+    margin-bottom: 30px;
+   
+  }
+  .text-area{
+    margin-top:20px;
+  }
+  textarea{
+    margin-top:10px;
+   
+  }
+  .button{
+    margin-top: 20px;
+  }
+button{
+    border-radius:10px;
+    border: 1px solid #eee;
+    padding: 10px;
+    font-size:18px;
+}
+.btn{
+ margin-top:10px;
+}

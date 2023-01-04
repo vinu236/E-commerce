@@ -1,0 +1,72 @@
+<%-include('../includes/admin/head.ejs')%>
+<link rel="stylesheet" href="/css/form.css">
+<title>Document</title>
+  </head>
+<%-include('../includes/admin/navigation.ejs')%>
+
+<div class="col py-3 layout ">
+ 
+    <h3 style="text-align:center ;">Add-Products</h3>
+    
+    
+
+        <section class="main-section">
+           
+            <div class="container">
+                
+                <form  method="post" action="/admin_panel/add_products" enctype="multipart/form-data" id="form">
+                    <div class="form-container">
+                    <div class="input-box">
+                        <label for="name">Product title</label>
+                        <input type="text" id="name" placeholder="product name" name="title">
+                    </div>
+                    <div class="input-box">
+                        <label for="price">Price</label>
+                        <input type="number" name="price" id="price" min="1">
+                    </div>
+                    <div class="input-box">
+                        <label for="size">Size</label>
+                        <input type="text" name="size" id="size">
+                    </div>
+                    <div class="input-box">
+                        <label for="stock">Stock</label>
+                        <input type="number" name="stock" id="stock" min="1">
+                    </div>
+                    <div class="input-box category">
+                        <label for="category">Category</label>
+                        
+                        <select name="category">
+                            <option value="">Select Category</option>
+                            <% for(let i=0;i<getCategory.length;i++){%>
+                            <option ><%=getCategory[i].Name%></option> 
+                            <%}%> 
+                        </select>
+                    </div>
+    
+                    <div class="input-box addimg">
+                        <label for="image">
+                            AddImage
+                            <i class="fa-solid fa-camera-retro "style="cursor: pointer"></i>
+                            <input type="file" name="myFiles" style="display: none;" id="image">
+                        </label>
+                    </div>
+                    <div class="input-box description">
+                        <label for="description">Description</label>
+                       <textarea name="description" id="description"></textarea>
+                    </div>
+
+                    
+                    </div>
+                    <div class="col-auto butn">
+                  <button type="submit" class="btn btn-primary mb-3 bg-dark butnel">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+    </html>
+
+  
+   
+  </div>
+  <%-include('../includes/admin/footer.ejs')%>

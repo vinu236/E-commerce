@@ -1,0 +1,45 @@
+.section-banner{
+    background-color: #fff;
+}
+.banner-container{
+   max-width: 1300px;
+   margin: 0 auto;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background-color: #fff;
+    padding: 30px;
+    gap: 40px   ;
+}
+.heading-primary{
+    font-size:40px;
+    color: #333;
+    font-weight: 700;
+}
+.shop-description{
+    font-size: 15px;
+    font-weight: 550;
+    line-height: 1.5;
+
+    letter-spacing:-0.1px;
+    margin-bottom: 40px;
+}
+.banner-img{
+    width:80%;
+    
+}
+.btns:link,.btns:visited{
+    background-color: #e67622;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px;
+    border-radius: 30px;
+    letter-spacing: normal;
+    transition: all 0.5 Vs;
+}
+.btns:hover,.btns:active{
+    
+    /* background-color: #cf6a1f; */
+    box-shadow: inset 0 0 0 3px #fff;
+}

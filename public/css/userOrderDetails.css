@@ -1,0 +1,17 @@
+*{
+ margin: 0px;
+ padding: 0px;
+ /* border-sizing:border-box ; */
+}
+
+.main-section{
+    background-color: aqua;
+    width:100%!important
+}
+.table-section{
+    max-width: 100%;
+}
+.prdDetail{
+    text-decoration: none;
+    color: blue;
+}

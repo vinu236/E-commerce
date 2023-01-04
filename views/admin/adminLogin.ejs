@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="  background-image: -webkit-linear-gradient(-65deg, #1d1b21 50%, #c7cbee 50%)">
+        <form  method="post" action="/admin_login" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" class="glass">
+                <div class="title" style="color:white ;">Admin-Login</div>
+            <div class="inTags">
+                <label for="email" style="color:white">Email address</label>
+                <i class="far fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="@gmail.com">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="password" style="color:white" name="password">Password</label>
+                
+                <input type="password" name="password" id="password">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            
+            
+            <button  id="submit"  type="submit" style="background-color: black; color:white;">Login</button>
+        </form>
+
+    </div>
+    <script src="/js/sign-up.js"></script>
+</body>
+</html>

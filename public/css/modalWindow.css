@@ -1,0 +1,77 @@
+body{
+background-color: #eee;
+}
+.hidden{
+    display: none !important;
+}
+.addressField{
+   
+    line-height: 2;
+    max-width:450px;
+    padding:20px;
+    
+
+}
+.addressField a{
+    text-decoration: none;
+    color: black;
+}
+.addressField a button{
+    background-color: aliceblue;
+    border-radius: 5px;
+    border:0px;
+}
+.head{
+    background-image: -webkit-linear-gradient(-65deg, #68a7dd 50%, #fff 50%);
+    color: white;
+    
+}
+.headS{
+    background-image: -webkit-linear-gradient(-65deg, #68a7dd 50%, #fff 50%);
+    color: white;
+    
+}
+.btns{
+    margin-top: 15px;
+    color: white;
+    border-radius:4px;
+    font-size: 17px;
+    background-color:#68a7dd;
+    border: 0px;
+    transition: all 1s;
+    font-family: sans-serif;
+}
+.btns:hover{
+    background-color:#306899 
+}
+
+.deletelink{
+    cursor: pointer;
+}
+
+.batn {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #3891c9);
+    background-image: -moz-linear-gradient(top, #3498db, #3891c9);
+    background-image: -ms-linear-gradient(top, #3498db, #3891c9);
+    background-image: -o-linear-gradient(top, #3498db, #3891c9);
+    background-image: linear-gradient(to bottom, #3498db, #3891c9);
+    -webkit-border-radius: 26;
+    -moz-border-radius: 26;
+    border-radius: 26px;
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 3px 10px 3px 10px;
+    text-decoration: none;
+  }
+  
+  .batn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+  }

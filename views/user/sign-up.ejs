@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title> 
+</head>
+<body>
+    <div class="container">
+        <form   onsubmit="return validate()" method="post" action="/signup" >
+            <div class="title">Sign-up</div>
+            <div>
+                <label for="username">User Name</label>
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" id="username" placeholder="username">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="email">Email address</label>
+                <i class="far fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                
+                <input type="password" name="password" id="password">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+            <div>
+                <label for="password">Confirm Password</label>
+                
+                <input type="password" name="cPassword" id="cPassword">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+           
+            
+            <button  id="submit" type="submit" >Register</button>
+        </form>
+
+    </div>
+    <script src="/js/sign-up.js"></script>
+</body>
+</html>
