@@ -164,7 +164,7 @@ exports.deleteCategory=(async(req,res)=>{
 
 exports.getAddCategory=((req,res)=>{
   try {
-    res.render('admin/Add-category')
+    res.render('admin/add-category')
   } catch (error) {
     console.log(error)
   }
