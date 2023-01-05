@@ -185,7 +185,7 @@ exports.getHome=async(req,res)=>{
      const getBanner=await banner.find()
     
     try {
-        const getProducts=await products.find({isDeleted:false})
+        const getProducts=await products.find({isDeleted:false}).limit(10)
         res.render('user/homePage',{getProducts,session,getBanner})
       
 
