@@ -10,8 +10,11 @@
   <title>Document</title>
 </head>
 <body>
-  <section class="section">
-<div class="form">
+  <%-include('../includes/admin/navigation.ejs')%>
+  <section class="section col py-3 layout " style="background-color: #cfe2b9;" >
+   
+<div class="form " style="display: flex; flex-direction: column; gap: 10px; ">
+  <h2 class="heading">Add-Banner</h2>
 <form action="/admin_panel/banner" method="post" enctype="multipart/form-data">
 
 
@@ -29,12 +32,20 @@
 
  
 </div>
-<div class="btn " style="text-align:left;">
+
+<div class="form-1">
+  <label for="">Sub-heading-Text</label>
+  <input type="text" value="" name="sub-head">
+</div>
+
+<div class="btn " style="text-align:left; margin-bottom: 10px;">
   <label for="">Button-Name</label>
   <input type="text" name="btnName">
 </div>
 
 
+
+<div class="banner-3">
 <div class="file">
   <label for="img">
     Banner
@@ -48,7 +59,7 @@
   <div>Banner-Description</div>
   <textarea name="description" id="" cols="25" rows="5"></textarea>
 </div>
- 
+</div>
 <div>
   <button type="submit" class="button">Submit</button>
 </div>

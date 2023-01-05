@@ -6,6 +6,10 @@ const bannerSchema=new schema({
     head:{
         type:String
     },
+    sub:{
+        type:String,
+
+    },
     btnName:{
         type:String
     },

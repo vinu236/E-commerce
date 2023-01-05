@@ -3,6 +3,7 @@ body{
     padding:0px;
     box-sizing: border-box;
     font-size: 17px;
+    height:100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .form{
@@ -14,7 +15,7 @@ body{
 }
 form{
     padding: 40px;
-    background-color: #fff;
+    background-color: #d9e8c7;
     border-radius:10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -30,6 +31,7 @@ label{
 input,textarea{
     border-radius: 30px;
     border:3px solid #eee;
+    background-color:#e2eed5;
 }
 
 
@@ -39,7 +41,7 @@ input[type=text],input[type=url]{
     margin: 8px 0;
     box-sizing: border-box;
   }
-
+  
   .file{
     margin-top:30px;
     margin-bottom: 30px;
@@ -54,6 +56,7 @@ input[type=text],input[type=url]{
   }
   .button{
     margin-top: 20px;
+    width: 500px;
   }
 button{
     border-radius:10px;
@@ -61,6 +64,18 @@ button{
     padding: 10px;
     font-size:18px;
 }
+button:active,button:hover{
+  background-color: #e2eed5;
+ 
+}
 .btn{
  margin-top:10px;
+}
+.heading{
+ color: #333333;
+ letter-spacing: 5px;
+}
+.banner-3{
+  display:flex;
+  gap: 140px;
 }

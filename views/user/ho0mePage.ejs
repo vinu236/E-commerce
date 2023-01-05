@@ -17,9 +17,6 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 />
-
-
-<%-include('../includes/user/headlinks.ejs')%>
     <style> 
        @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
 body{
@@ -232,66 +229,25 @@ a.buy-btn{
         <!-- navbar -->
   <%-include('../includes/user/navbar.ejs')%>
   <!-- navbar-end -->
-  <% if(getBanner.length){%>
-   
-
-<!-- ---- -->
-<section>                           
-
-
-  <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <% for(let i=0;i<getBanner.length;i++){%>
-        <div class="<%= i === 0 ? "carousel-item active": "carousel-item" %>">
-            <div class="container">
-                <div class="row p-5">
-                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="/uploads/<%=getBanner[i].bannerImage%>" alt="" width="300px">
-                    </div>
-                    <div class="col-lg-6 mb-0 d-flex align-items-center">
-                        <div class="text-align-left align-self-center">
-                            <h1  class="heading-primary"><%=getBanner[i].head%></h1>
-                            <h3 ><%=getBanner[i].subhead%></h3>
-                            <p class="shop-description">
-                                <%=getBanner[i].description%>
-                                
-                            </p>
-                            <% if(i===0){%>
-                            <div>
-                            <a href="<%=getBanner[i].url%> " class="btns"><%=getBanner[i].btnName%> &rarr;</a>
-                          </div>
-                        <%}%>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-          
-          <%}%>
-        </div>
-       
-    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-        <i class="fas fa-chevron-left"></i>
-    </a>
-    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-        <i class="fas fa-chevron-right"></i>
-    </a>
- 
-  </div>
-
-
-
-
-  
- 
+  <% if(getBanner){%>
+    <% for(let i=0;i<getBanner.length;i++){%>
+  <section class="section-banner">
+    <div class="banner-container">
+    <div class="banner-text-box">
+        <h1 class="heading-primary"><%=getBanner[i].head%></h1>
+        <p class="shop-description"><%=getBanner[i].description%></p>
+        <a href="<%=getBanner[i].url%> " class="btns"><%=getBanner[i].btnName%> &rarr;</a>
+    </div>
+    
+     
+    <div  class="banner-img">
+        <img src="/uploads/<%=getBanner[i].bannerImage%>" alt="" class="banner-img">
+    </div>
   <%}%>
- 
+  <%}%>
+    </div>
 </section>
+
     <div class="container text-center mt-5" >
       <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;letter-spacing: 3;">Hoddies</h1>
       </div >
@@ -323,7 +279,7 @@ a.buy-btn{
                     
                     <div class="wcf-left"><span class="price"><strong>&#x20B9;</strong> <%=getProducts[i].price%></span></div>
                     <div class="wcf-right"> 
-                      <ion-icon name="heart" class="wishlist"" onclick="wishlist('<%=getProducts[i]._id%>')" ></ion-icon>   
+                      <ion-icon name="heart" class="wishlist"" onclick="wishlist('<%=getProducts[i]._id%>')"></ion-icon>   
                       <i class="fa-solid fa-cart-plus" onclick="ajaxCart('<%=getProducts[i]._id%>')" style="margin-left:30px; cursor: pointer;" ></i></div>
                     
                   </div>
@@ -340,7 +296,7 @@ a.buy-btn{
       <%-include('../includes/user/footer.ejs')%>
       
   </body>
-  <%-include('../includes/user/footerScripts.ejs')%>
+  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="/js/ajaxCall.js"></script>
 <script
@@ -356,6 +312,5 @@ a.buy-btn{
   integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
   crossorigin="anonymous"
 ></script>
-
-
+ 
 </html>

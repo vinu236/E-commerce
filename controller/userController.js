@@ -46,21 +46,7 @@ exports.postSignup=async(req,res)=>{
 
     try {
 
-        // const user = await User.findOne({ email: email });
-
-        // if(user){
-        //     res.redirect('/signup')
-        // }else{
-        //     const userData=await  User.create({
-        //         Username:username,
-        //         email:email,
-        //         password:password,
-        //         confirmPassword:confirmPassword,
-        //         Active:true
-        //     })
-        //          res.redirect('/login')
-
-        // }
+       
 
 
 
@@ -89,6 +75,7 @@ exports.postSignup=async(req,res)=>{
     
     } catch (err) {
         console.log(err)
+        res.status(500).render('user/500');
         
     } 
 }
@@ -120,7 +107,7 @@ exports.getOtp=(req, res) => {
         })
         
       } catch (error) {
-        console.log(error);
+        res.status(500).render('user/500')
       }
       console.log("its here post otp");
       res.redirect('/login')
@@ -172,6 +159,7 @@ try {
   
 } catch (error) {
     console.log(error)
+    res.status(500).render('user/500')
 }
 }
 
@@ -181,7 +169,7 @@ try {
             req.session.destroy();
             res.redirect('/home')
         } catch (error) {
-            res.status(500).render("")
+            res.status(500).render('user/500')
         }
     })
 
@@ -205,6 +193,7 @@ exports.getHome=async(req,res)=>{
         
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 }
 
@@ -237,6 +226,7 @@ exports. getUserHome=async(req,res)=>{
         
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 }
 
@@ -297,6 +287,7 @@ exports.getAddWishlist=(async(req,res)=>{
         // res.render('user/wishlist')
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 })
 
@@ -356,7 +347,8 @@ exports.deleteWishlist=(async(req,res)=>{
             })
         })
     } catch (error) {
-        
+        console.log(error)
+        res.status(500).render('user/500')        
     }
 })
 
@@ -384,6 +376,7 @@ exports.getUserProfile=(async(req,res)=>{
     res.render('user/userProfile',{session,cartCount})
   } catch (error) {
     console.error(error)
+    res.status(500).render('user/500')
   }
 })
 
@@ -420,6 +413,7 @@ exports.getEditProfile=(async(req,res)=>{
         
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 })
 
@@ -476,6 +470,7 @@ exports.postProfile=(async(req,res)=>{
 
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
     
     }
@@ -532,6 +527,7 @@ exports.getUserOrderDetails=(async(req,res)=>{
         res.render('user/userOrderDetails',{getOrderDetails,getOrderedItems,session,cartCount})
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 })
 
@@ -585,6 +581,7 @@ exports.getUserProductView=(async(req,res)=>{
         
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 })
 
@@ -640,6 +637,7 @@ exports.getShopPage=(async(req,res)=>{
 
     } catch (error) {
         console.error(error)
+        res.status(500).render('user/500')
     }
   
 })
@@ -665,6 +663,8 @@ try {
     res.render('user/productDetails',{session,prd,cartCount})
    
 } catch (error) {
+    console.log(error)
+    res.status(500).render('user/500')
     
 }
 
@@ -745,6 +745,7 @@ try {
   
 } catch (error) {
     console.log(error)
+    res.status(500).render('user/500')
 }})
 
 
@@ -884,6 +885,7 @@ exports.getCart=(async (req,res)=>{
     } 
      catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 })
 
@@ -1005,6 +1007,7 @@ exports.postChangeQty=(async(req,res)=>{
         
     } catch (error) {
         console.error(error)
+        res.status(500).render('user/500')
     }
 
 })
@@ -1122,6 +1125,7 @@ exports.getCheckOutPage=(async(req,res)=>{
        
     } catch (error) {
         console.error(error)
+        res.status(500).render('user/500')
     }
 })
 
@@ -1248,6 +1252,7 @@ exports.postCheckOutPage=(async(req,res)=>{
 
     } catch (error) {
         console.error(error)
+        res.status(500).render('user/500')
     }
 
 
@@ -1357,6 +1362,8 @@ let deleteCart=await Cart.deleteOne({user_Id:ObjectId(user_Id)})
 
         // res.render('user/finalOrderPage',{createOrder,orderDate,getProductDetails,totalAmount})
      catch (error) {
+        console.log(error)
+        res.status(500).render('user/500')
         
     }
 
@@ -1407,6 +1414,7 @@ exports.deleteAddress=(async(req,res)=>{
         })
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 
 })
@@ -1487,5 +1495,6 @@ exports.checkCoupon=(async(req,res)=>{
     
     } catch (error) {
         console.log(error)
+        res.status(500).render('user/500')
     }
 })

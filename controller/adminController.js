@@ -10,6 +10,8 @@ require('fs')
 require('dotenv').config()
 const path = require("path");
 
+/* vinay */
+
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -403,15 +405,17 @@ exports.postBanner=(async(req,res)=>{
    const head=req.body.head;
    const description=req.body.description;
    const url=req.body.url;
-   const btnName=req.body.btnName̥
-   
+   const btnName=req.body.btnName
+   const subhead=req.body.subhead
+   console.log(btnName)
 
    const postBanner=await banner.create({
     bannerImage:img,
     url:url,
     head:head,
     description:description,
-    btnName:btnName
+    btnName:btnName,
+    subhead:subhead
    })  
    res.redirect('/admin_panel/banner');
   } catch (error) {

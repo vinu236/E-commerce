@@ -37,7 +37,9 @@ app.use(express.static(staticPath));
 app.set("view engine", "ejs");
 app.use(userRoutes);
 app.use(adminRoutes)
-
+app.use((req,res)=>{
+res.status(404).render('user/404')
+})
 
 
 
