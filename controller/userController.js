@@ -205,7 +205,7 @@ exports. getUserHome=async(req,res)=>{
     const session=req.session;
     try {
 
-        const getBanner=await banner.find()
+        const getBanner=await banner.find().limit(10)
         let cartCount=0;
         // check does user have cart or not....
         let cart=await Cart.findOne({user_Id: ObjectId(req.session.userId)})
