@@ -3,6 +3,7 @@ const router=express.Router();
 var multer = require('multer');
 const userController=require('../controller/userController');
 const verifyUser=require('../middleware/session')
+const upload=require('../middleware/multer');
 
 
 /* ------------------------------Login----------------------------------------------- */
@@ -26,6 +27,7 @@ router.get('/',userController.getHome);
 router.get('/user/profile',verifyUser.verifyUser,userController.getUserProfile)
 router.get('/user/edit-profile',verifyUser.verifyUser,userController.getEditProfile)
 router.post('/user/update-profile',verifyUser.verifyUser,userController.postProfile)
+router.post ('/user/update-profile-image',verifyUser.verifyUser,upload.single('myFiles'),userController.putProfile)
 router.get('/user/order',verifyUser.verifyUser,userController.getUserOrderDetails)
 // router.get('/user/order-details-view/:id',verifyUser.verifyUser,userController.getOrder)
 

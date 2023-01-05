@@ -133,7 +133,7 @@ id.addEventListener('click',(e)=>{
   e.preventDefault();
 console.log(id)
   
-  alert(id+"id")
+  
 })
 
 function orderSelect(Id,id){

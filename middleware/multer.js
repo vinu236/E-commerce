@@ -1,7 +1,7 @@
 
 const multer = require("multer");
 const path = require("path");
-
+console.log("helloo hadajdjadjajdajdjdj")
 // set disk-storage
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{

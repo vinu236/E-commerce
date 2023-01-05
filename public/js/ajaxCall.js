@@ -288,7 +288,7 @@ async function del (adId){
 
 function dis(totalAmount){
     const code=document.querySelector('#code').value
-    alert("hello")
+  
     console.log("discount")
     $.ajax({
         url:'/coupon-check',
@@ -356,7 +356,7 @@ function wishlist(Id){
 }
 
 function deleteWishlist(ID){
-    console.log("helloo world ")
+  
     $.ajax({
         url:'/delete-wishlist/'+ID,
         method:"delete",

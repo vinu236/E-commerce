@@ -49,7 +49,11 @@ const userSignupSchema=new Schema({
     Active:{
         type:String,
         required:true
-    }
+    },
+    imageUrl: {
+        type: String,
+      
+      }
 })
 
 module.exports=mongoose.model('User',userSignupSchema)

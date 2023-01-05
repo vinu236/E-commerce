@@ -142,7 +142,8 @@ try {
     const userCheck=await User.findOne({email,password})
     
     if(!userCheck){
-        res.send("failed");
+        req.flash('message',['Please check your credentials!'])
+        res.redirect('/login')
     }else if(userCheck.Active==='true'){
         req.session.isLoggedIn=true;
         req.session.userId=userCheck._id;
@@ -356,10 +357,11 @@ exports.deleteWishlist=(async(req,res)=>{
 exports.getUserProfile=(async(req,res)=>{
   try {
     const session=req.session
+    const user_Id=req.session.userId
     console.log("userProfile")
     console.log(session)
     const Category=await categories.find({})
-
+    const getUser=await User.findById(user_Id)
 
 
     let cartCount=0;
@@ -373,7 +375,7 @@ exports.getUserProfile=(async(req,res)=>{
     // console.table("count=?>>>>>>>>>>>>>>>>"+cartCount);
     
     }
-    res.render('user/userProfile',{session,cartCount})
+    res.render('user/userProfile',{session,cartCount,getUser})
   } catch (error) {
     console.error(error)
     res.status(500).render('user/500')
@@ -429,8 +431,7 @@ exports.getEditProfile=(async(req,res)=>{
 exports.postProfile=(async(req,res)=>{
     
     try {
-        console.log('WELCOMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENPM S')
-        /* get req.body data */
+       
         const currentPassword=req.body.currentPassword;
         const newPassword=req.body.newPassword;
         const confirmPassword=req.body.cPassword;
@@ -475,6 +476,28 @@ exports.postProfile=(async(req,res)=>{
     
     }
 )
+
+exports.putProfile=(async(req,res)=>{
+    try {
+        const user_Id=req.session.userId
+        console.log("profile-section")
+        console.log(req.file)
+        const userImageUrl=req.file.filename;
+        console.log(userImageUrl)
+
+        const proImageUpdate=await User.findByIdAndUpdate({_id:user_Id},{imageUrl:userImageUrl}).then(()=>{
+            res.json({
+                imageUploaded:true
+            })
+        })
+       
+       
+    } catch (error) {
+        console.log(error)
+        res.status(500).render('user/500')
+    }
+})
+
 
 /* ----------------------------------------userOrderDetails--------------------------------------- */
 exports.getUserOrderDetails=(async(req,res)=>{

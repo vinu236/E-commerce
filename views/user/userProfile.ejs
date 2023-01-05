@@ -46,14 +46,16 @@
               <div class="card mb-4" >
                 <div class="card-body text-center card-container">
                   <div class="upload">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" width = 100 height = 100 alt="" id="imageId">
+                    <img src="/uploads/<%=getUser.imageUrl%>" width = 100 height = 100 alt="" id="imageId">
                     <div class="round">
-                      <input type="file" name="myFile" id="img">
+                      <input type="file" name="myFiles" id="img">
                       <i class = "fa fa-camera" style = "color: #fff;"></i>
                     </div>
                   </div>
                   
-                  <h5 class="my-3">Shobin Shaju</h5>
+                  <h5 class="my-3"><%=getUser.Username%></h5>
+                  <span id="uploaded_image"></span>
+
                   
                 <div class="list" >
                   <ul  class="list">
@@ -107,5 +109,6 @@
       </section>
       
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="/js/proAjax.js"></script>
 </html>
