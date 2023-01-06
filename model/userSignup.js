@@ -41,8 +41,8 @@ const userSignupSchema=new Schema({
         
     }],
     Active:{
-        type:String,
-        required:true
+        type:Boolean,
+        default:true
     },
     
     imageUrl: {

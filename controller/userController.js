@@ -97,7 +97,7 @@ exports.getOtp=(async(req, res) => {
             email:email,
             password:password,
             confirmPassword:confirmPassword,
-            Active:true
+           
         })
         
       res.redirect('/')
@@ -107,7 +107,7 @@ exports.getOtp=(async(req, res) => {
         res.status(500).render('user/500')
       }
       
-    } 
+    }
    
 }),
 
