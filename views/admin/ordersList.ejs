@@ -29,8 +29,11 @@
             <tbody>
                 <% for(let i=0;i<getOrderList.length;i++){ %>
                   
-                <tr>
-                    
+                    <%if(getOrderList[i].orderStatus==="Cancel"){%>
+                        <tr id="id<%=getOrderList[i].orderStatus%>" style="background-color: red;">
+                        <%}else{%>
+                <tr id="id<%=getOrderList[i].orderStatus%>" >
+                <%}%>
                    
                     <td><%=[i+1]%></td>
                     <td><a href="/admin_panel/orderPrds/<%=getOrderList[i]._id%>" class="orderid"><%=getOrderList[i]._id%></a></td>
@@ -39,15 +42,17 @@
                        
                            
                         <select  id="order_id" onchange="orderSelect(this.id,'<%=getOrderList[i]._id%>')" value="Placed">
-                            
+                            <option ><%=getOrderList[i].orderStatus%></option>
                             <option  autocomplete="off">Pending</option>
                             <option  autocomplete="off">Placed</option>
                             <option  autocomplete="off">Shipped</option>
                             <option  autocomplete="off">Delivered</option>
+                            <option  autocomplete="off">Cancel</option>
                         </select>
                    
                     </td>
                     <td><%=getOrderList[i].deliveryDate%></td>   
+                    
                     <td><%=getOrderList[i].totalAmount%></td>   
 
                 </tr>

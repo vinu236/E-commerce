@@ -123,7 +123,7 @@ function dele(id){
   
 }
 
-/* ---------------------------------Category------------------------------------------------------- */
+/* ---------------------------------OrderManagement------------------------------------------------------- */
 const orderStatus=document.getElementById("orderStatus")
 const id=document.getElementById("th-<%=getOrderList._id%>");
 
@@ -162,11 +162,20 @@ function orderSelect(Id,id){
       console.log(response)
       const updatedStatus=response.data.orderStatus
     
+        
       console.log(updatedStatus)
       if(response){
         if(orderStatus==updatedStatus){
   // select selected options
-  
+         if(updatedStatus=="Cancel"){
+           
+          location.reload()  
+          let idV=document.getElementById("idCancel").style.backgroundColor = "red";
+         
+         
+         }else if(updatedStatus!='Cancel'){
+          idV=document.getElementById("idCancel").style.backgroundColor = "";
+         }
 
         }else{
           alert("something went wrong")

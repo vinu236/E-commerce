@@ -92,7 +92,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Income</p>
                     <h5 class="font-weight-bolder mb-0">
-                     
+                      <%=totalAmount%> 
                       <!-- <span class="text-success text-sm font-weight-bolder">+3%</span> -->
                     </h5>
                   </div>
@@ -123,6 +123,7 @@
       <input type="hidden" id="delivered" value="<%= delivered%>" />
       <input type="hidden" id="cod" value="<%=cod%>" />
       <input type="hidden" id="online" value="<%online%>" />
+      <input type="hidden" id="cancel" value="<%cancel%>" />
     </section>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -134,17 +135,19 @@
       const delivered = Number(document.getElementById("delivered").value);
       const cod = Number(document.getElementById("cod").value);
       const online = Number(document.getElementById("online").value);
+      const cancel = Number(document.getElementById("cancel").value);
+   
       
       new Chart(ctx, {
         type: "bar",
         data: {
-          labels: ["Pending", "shipped", "delivered", "Completed"],
+          labels: ["Pending", "shipped", "delivered", "Completed","Cancel"],
           datasets: [
             {
               label: "No .of Orders",
-              data: [pending, shipped, delivered, completed],
+              data: [pending, shipped, delivered, completed,cancel],
               borderWidth: 2,
-              backgroundColor: ["#BD000E" , "#BD000E", "#BD000E", "#BD000E"],
+              backgroundColor: ["#BD000E" , "#BD000E", "#BD000E", "#BD000E","#BD000E"],
             },
           ],
         },

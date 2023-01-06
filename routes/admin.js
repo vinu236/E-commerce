@@ -61,4 +61,7 @@ router.post('/admin_panel/download',adminController.downloadSales )
 
 
 
+/* ---------------------------------Admin-Logout------------------------------------------ */
+router.get('/admin/logout',adminController.getLogout)
+
  module.exports=router;

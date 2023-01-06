@@ -239,19 +239,16 @@ a.buy-btn{
 <section>                           
 
 
-  <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-    </ol>
+  <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel" >
+   
     <div class="carousel-inner">
       <% for(let i=0;i<getBanner.length;i++){%>
+        
         <div class="<%= i === 0 ? "carousel-item active": "carousel-item" %>">
             <div class="container">
                 <div class="row p-5">
-                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="/uploads/<%=getBanner[i].bannerImage%>" alt="" width="300px">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last" >
+                        <img class="img-fluid" src="/uploads/<%=getBanner[i].bannerImage%>" alt="" width="300px" >
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
@@ -275,11 +272,11 @@ a.buy-btn{
           <%}%>
         </div>
        
-    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev" style="background-color: #eee;">
         <i class="fas fa-chevron-left"></i>
     </a>
-    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-        <i class="fas fa-chevron-right"></i>
+    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next"  style="background-color: #eee;">
+        <i class="fas fa-chevron-right" ></i>
     </a>
  
   </div>
@@ -293,7 +290,7 @@ a.buy-btn{
  
 </section>
     <div class="container text-center mt-5" >
-      <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;letter-spacing: 3;">Hoddies</h1>
+      <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;letter-spacing: 3;"> Top-Collections</h1>
       </div >
       
       

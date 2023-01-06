@@ -10,7 +10,6 @@ require('fs')
 require('dotenv').config()
 const path = require("path");
 
-/* vinay */
 
 
 const ObjectId = mongoose.Types.ObjectId;
@@ -91,10 +90,18 @@ exports.unBlockUser=async(req,res)=>{
     const delivered=await order.find({orderStatus:'Delivered'}).count()
     const cod=await order.find({paymentMethod:'COD'}).count()
     const online=await order.find({paymentMethod:'Online'}).count()
+    const cancel=await order.find({paymentMethod:'Cancel'}).count();
+    const orderData = await order.find({ orderStatus: { $ne: 'Cancel' } });
+
+    const totalAmount = orderData.reduce((accumulator, object) => {
+    
+      return (accumulator += object.totalAmount);
+    }, 0);
+
     
     console.log(completed)
 
-    res.render('admin/chart',{usercount,productcount,ordercount,completed,shipped,pending,delivered,cod,online})
+    res.render('admin/chart',{usercount,productcount,ordercount,completed,shipped,pending,delivered,cod,online,cancel,totalAmount})
   } catch (error) {
     
   }
@@ -214,8 +221,8 @@ exports.postCategory=async(req,res)=>{
 
 
 exports.postAddProducts=async(req,res)=>{
-  console.log("HELLO WORLD")
-  console.log("post product")
+ 
+ 
     console.log(req.file)
   const title = req.body.title;
   const image = req.file.filename;
@@ -664,3 +671,12 @@ exports.deleteCoupon=(async(req,res)=>{
 }
 
  })
+
+
+ exports.getLogout=(async(req,res)=>{
+  try {
+      req.session.destroy();
+      res.redirect('/admin_Login')
+  } catch (error) {
+      res.status(500).render('user/500')
+  }})
