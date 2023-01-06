@@ -87,7 +87,7 @@ exports.getOtp=(async(req, res) => {
   })
 
   exports.postOtp= (async (req, res) => {
-    let otp  = req.body;
+    let {otp}  = req.body;
     
     if (OTP === otp.otp) {
       try {
