@@ -63,6 +63,6 @@ DB.CONNECT();
 //     console.log(err);
 //   });
 
-  app.listen(8080,() => {
+  app.listen(6000,() => {
     console.log("server connected on port 8080");
   });
