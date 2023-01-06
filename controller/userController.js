@@ -90,7 +90,7 @@ exports.getOtp=(async(req, res) => {
     let otp  = req.body;
     console.log(otp)
     console.log(OTP)
-    if (OTP === otp.otp) {
+   
       try {
         const userData=await User.create({
             Username:username,
@@ -107,7 +107,7 @@ exports.getOtp=(async(req, res) => {
         res.status(500).render('user/500')
       }
       
-    }
+    
    
 }),
 
