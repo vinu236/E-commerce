@@ -36,17 +36,13 @@ exports.getSignup=((req,res)=>{
    res.render('user/sign-up')
 })
 exports.postSignup=async(req,res)=>{
-    console.log("hello")
+    
+    try {
 
-         username=req.body.username;
+        username=req.body.username;
          email=req.body.email;
          password=req.body.password;;
           confirmPassword=req.body.cPassword;
-
-
-    try {
-
-       
 
 
 
@@ -90,7 +86,7 @@ exports.getOtp=(req, res) => {
     }
   }
 
-  exports.postOtp= async (req, res) => {
+  exports.postOtp= (async (req, res) => {
     let otp  = req.body;
     console.log(otp)
     console.log(OTP)
@@ -103,7 +99,7 @@ exports.getOtp=(req, res) => {
             confirmPassword:confirmPassword,
             Active:true
         })
-        console.log("its here post otp");
+        
       res.redirect('/')
         
       } catch (error) {
@@ -113,7 +109,7 @@ exports.getOtp=(req, res) => {
       
     } 
    
-},
+}),
 
 /* ----------------------------login------------------------------------------------- */
 exports.getLogin=(req,res)=>{
