@@ -131,7 +131,7 @@ exports.getLogin=(req,res)=>{
 exports.postLogin=async(req,res)=>{
     
 try {
-    console.log('posted')
+ 
     const email=req.body.email;
     const password=req.body.password
    
