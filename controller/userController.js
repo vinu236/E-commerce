@@ -91,14 +91,12 @@ exports.getOtp=(req, res) => {
   }
 
   exports.postOtp= async (req, res) => {
-    console.log("heyyy")
     let otp  = req.body;
     console.log(otp)
     console.log(OTP)
     if (OTP === otp.otp) {
-        console.log("heyyyyyyyy")
       try {
-        const userData=await  User.create({
+        const userData=await User.create({
             Username:username,
             email:email,
             password:password,
