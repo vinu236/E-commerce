@@ -88,8 +88,7 @@ exports.getOtp=(async(req, res) => {
 
   exports.postOtp= (async (req, res) => {
     let otp  = req.body;
-    console.log(otp)
-    console.log(OTP)
+    
     if (OTP === otp.otp) {
       try {
         const userData=await User.create({
