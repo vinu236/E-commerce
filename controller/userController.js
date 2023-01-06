@@ -99,7 +99,7 @@ exports.getOtp=(async(req, res) => {
            
         })
         
-      res.redirect('/')
+      res.redirect('/login')
         
       } catch (error) {
         console.log(error)
