@@ -78,13 +78,13 @@ exports.postSignup=async(req,res)=>{
 
 
 /* -------------------------Otp------------------------------------------ */
-exports.getOtp=(req, res) => {
+exports.getOtp=(async(req, res) => {
     if (req.session.email) {
       res.redirect("/home");
     } else {
       res.render("user/otp");
     }
-  }
+  })
 
   exports.postOtp= (async (req, res) => {
     let otp  = req.body;
@@ -124,7 +124,7 @@ exports.getLogin=(req,res)=>{
 }
 
 
-exports.postLogin=async(req,res)=>{
+exports.postLogin=(async(req,res)=>{
     
 try {
  
@@ -156,7 +156,7 @@ try {
     console.log(error)
     res.status(500).render('user/500')
 }
-}
+})
 
     /* --------------------logout--------------------------------------------------------- */
     exports.logout=(async(req,res)=>{
