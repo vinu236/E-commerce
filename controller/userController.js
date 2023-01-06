@@ -37,7 +37,7 @@ exports.getSignup=((req,res)=>{
 })
 exports.postSignup=async(req,res)=>{
     console.log("hello")
-    console.log("shobin")
+
          username=req.body.username;
          email=req.body.email;
          password=req.body.password;;
