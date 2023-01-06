@@ -37,6 +37,8 @@ const userSignupSchema=new Schema({
         mobileNumber:{
             type:Number,
           
+        },email:{
+            type:String
         }
         
     }],
