@@ -91,12 +91,12 @@ exports.getOtp=(req, res) => {
   }
 
   exports.postOtp= async (req, res) => {
-    console.log("otp i")
+    console.log("heyyy")
     let otp  = req.body;
     console.log(otp)
     console.log(OTP)
     if (OTP === otp.otp) {
-        
+        console.log("heyyyyyyyy")
       try {
         const userData=await  User.create({
             Username:username,
@@ -105,16 +105,16 @@ exports.getOtp=(req, res) => {
             confirmPassword:confirmPassword,
             Active:true
         })
+        console.log("its here post otp");
+      res.redirect('/')
         
       } catch (error) {
+        console.log(error)
         res.status(500).render('user/500')
       }
-      console.log("its here post otp");
-      res.redirect('/login')
+      
     } 
-    else {
-      res.redirect("/otp");
-}
+   
 },
 
 /* ----------------------------login------------------------------------------------- */
