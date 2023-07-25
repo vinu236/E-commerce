@@ -33,6 +33,7 @@ const staticPath = path.join(__dirname, "/public");
 
 app.use(express.static(staticPath));
 
+app.set('port', 8080);
 
 app.set("view engine", "ejs");
 app.use(userRoutes);
@@ -63,6 +64,6 @@ DB.CONNECT();
 //     console.log(err);
 //   });
 
-  app.listen(6000,() => {
-    console.log("server connected on port 8080");
-  });
+  app.listen(app.get('port'),() => {
+    console.log(`server connected on port ${app.get('port')}`);
+  }); 

@@ -41,8 +41,7 @@
 // }
 
 function ajaxCart(ID){
-    console.log("ajx")
-    console.log(ID)
+   
     $.ajax({
         url:'/add-cart/'+ID,
         method:'get',
@@ -112,7 +111,7 @@ function changeQty(cartId,prodId,count){
                  console.log(order_id)
                 location.href="/order-confirmed?order_id="+order_id
             }else{
-                console.log("HELLO WORLD")
+          
                 console.log(response[0].orders)
                razorpay(response[0].orders);
             }

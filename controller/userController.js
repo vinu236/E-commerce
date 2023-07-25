@@ -33,12 +33,12 @@ const OTP=`${Math.floor(1000+Math.random()*9000)}`
 
 exports.getSignup=((req,res)=>{
     console.log("signup")
-   res.render('user/sign-up')
+   res.render('user/sign-up',{error:null})
 })
 exports.postSignup=async(req,res)=>{
     
     try {
-
+        console.log("gjgjhjhkhkhkhkhkhkhkhkhkhkhk")
         username=req.body.username;
          email=req.body.email;
          password=req.body.password;;
@@ -55,9 +55,11 @@ exports.postSignup=async(req,res)=>{
             
         }
         const user = await User.findOne({ email: email });
-    if (user) {
-      res.redirect("user/signup");
-    } else {
+        if (user) {
+            console.log("User already exists");
+            req.flash('error', 'User with this email already exists'); // Store the error message in flash
+            res.render('user/sign-up', { title: 'Signup', error: req.flash('error') }); // Pass the error message to the view
+          } else {
       mailTransporter.sendMail(mailDetails, function (err, data) {
         if (err) {
           console.log("Error Occurs");
@@ -126,18 +128,21 @@ exports.getLogin=(req,res)=>{
 exports.postLogin=(async(req,res)=>{
     
 try {
+    console.log("asdhkakdhkhkhkhkh")
  
     const email=req.body.email;
     const password=req.body.password
    
     
     console.log("home")
-    const userCheck=await User.findOne({email,password})
-    
+    const userCheck=await User.findOne({email,password});
+    console.log(userCheck)
     if(!userCheck){
+        console.log("hello")
         req.flash('message',['Please check your credentials!'])
         res.redirect('/login')
-    }else if(userCheck.Active==='true'){
+    }else if(userCheck.Active===true){
+        console.log("home nte vaigu")
         req.session.isLoggedIn=true;
         req.session.userId=userCheck._id;
         req.session.email=userCheck.email
@@ -150,6 +155,7 @@ try {
         req.flash('message', ['You are blocked']);
         res.redirect('/login');
     }
+    
   
 } catch (error) {
     console.log(error)
@@ -436,14 +442,14 @@ exports.postProfile=(async(req,res)=>{
             /* 1) first we need  user id to find the user */
                 const user_id=req.session.userId;
                 let userCheck=await User.find({_id:user_id})
-                console.log("userCheck")
-                console.log(userCheck)
+                
+                
             /* 2) if userCheck found then update the current Password with new Password and confirm the new Password  */
                 if(userCheck.length){
                     /* i)check the newPassword and confirm password true or not */
                     /* if it is true update or if it is not show alert message*/
                         if(newPassword===confirmPassword){
-                            console.log("true")
+                            
                             let updatePassword=await User.findByIdAndUpdate({_id:user_id},{password:newPassword,confirmPassword:confirmPassword}).then(()=>{
                                 req.session.destroy(function (err) {
                                     //Inside a callback… bulletproof!

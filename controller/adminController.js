@@ -51,7 +51,7 @@ exports.getUser = async (req, res) => {
 
 
 exports.blockUser=async(req,res)=>{
- console.log(req.params.id)
+
  const id=req.params.id;
   
  

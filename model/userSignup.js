@@ -53,4 +53,4 @@ const userSignupSchema=new Schema({
       }
 })
 
-module.exports=mongoose.model('User',userSignupSchema)
+module.exports=mongoose.model('User',userSignupSchema);
